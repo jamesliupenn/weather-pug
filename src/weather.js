@@ -1,14 +1,13 @@
-// Constructor
+// Constructor for the Weather Class
 function Weather(data) {
 	this.coord = data.coord;
 	this.location = data.name;
-	this.temp = data.main.temp;
-	this.fahrenheit = ktoF(this.temp);
-	this.celsius = ktoC(this.temp);
+	this.fahrenheit = ktoF(data.main.temp);
+	this.celsius = ktoC(data.main.temp);
 	this.status = parseStatus(data.weather);
 }
 
-// class methods
+// Methods
 function ktoF(kelv) {
 	return Math.round(kelv * 9/5 - 459.67);
 }
