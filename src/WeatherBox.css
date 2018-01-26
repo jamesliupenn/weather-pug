@@ -1,0 +1,27 @@
+* {
+	font-family: 'Dosis', 'Oxygen', sans-serif;
+}
+
+.weather-tags {
+	margin: 1em 4em 1em 4em;
+	background-color: #d9f3f9;
+	border-radius: 1em;
+	display: grid;
+	justify-items: start;
+}
+
+#weather-location {
+	font-size: 2em;
+
+	/*grid-column-start: 2;
+	grid-column-end: five;
+	grid-row-start: row1-end;
+	grid-row-end: 3;*/
+}
+
+#weather-status {
+}
+
+#weather-f {
+	font-size: 2em;
+}

@@ -5,6 +5,7 @@ function Weather(data) {
 	this.fahrenheit = ktoF(data.main.temp);
 	this.celsius = ktoC(data.main.temp);
 	this.status = parseStatus(data.weather);
+	this.humidity = data.main.humidity;
 }
 
 // Methods
