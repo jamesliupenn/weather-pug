@@ -3,6 +3,7 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar';
 import Search from './Search';
+// import Map from './Map';
 
 class App extends Component {
   render() {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToggleDisplay from 'react-toggle-display';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -12,9 +13,11 @@ class Search extends Component {
   	this.state = {
   		zipcode: '', 
   		weather: 'TEST', 
-  		isHidden: true
+  		show: false,
+  		isMapHidden: true,
+  		img: '',
+  		status: ''
   	};
-  	// this.isHidden = true;
 
   	// Manually binding this to the method
   	this.handleChange = this.handleChange.bind(this);
@@ -30,13 +33,17 @@ class Search extends Component {
   handleSubmit(zipcode) {
   	getWeather(zipcode)
   		.then(response => {
-  			// this.isHidden = false;
   			this.setState({ zipcode });
   			this.setState({ weather: response });
-  			console.log(response);
+  			this.setState({
+  				show: true
+  			});
+  			// Figure out which icon img to use for the weather
+  			let icon = this.imgPicker(response.status);
   		}).catch(err => {
+  			this.setState({ show: false });
   			window.alert("Invalid zipcode, please enter again");
-  			console.log(err);
+			window.location.reload();
   			// Need to handle error and redirect back to page
   		});
   }
@@ -45,13 +52,38 @@ class Search extends Component {
   	event.preventDefault();
   	const { zipcode } = this.state;
   	this.handleSubmit(zipcode);
-  	// this.showMap();
+
   }
 
   showMap() {
   	this.setState({
-  		isHidden: !this.state.isHidden
+  		isMapHidden: !this.state.isMapHidden
   	})
+  }
+
+  // An image selector to pick a weather icon
+  imgPicker(status) {
+  	console.log(status);
+  	let condition = status[0].toString();
+  	if (condition === "800") {
+ 		this.setState({ img: './sunny.png' });
+  	}
+ 	else if (condition.match(/^8/)) {
+ 		this.setState({ img: './cloud.png' });
+ 	}
+ 	else if (condition.match(/^[3|5]/)) {
+ 		this.setState({ img: './rain.png' });
+ 	}
+ 	else if (condition.match(/^7/)) {
+ 		this.setState({ img: './misty.png' });
+ 	}
+ 	else if (condition.match(/^2/)) {
+		this.setState({ img: './lightning.png' });
+ 	}
+ 	else if (condition.match(/^6/)) {
+ 		this.setState({ img: './snow.png' });
+ 	}
+ 	this.setState({ status: status[1]});
   }
 
   render() {
@@ -68,16 +100,21 @@ class Search extends Component {
 	    				primary={true} onSubmit={this.handleSubmit}/>
 	    		</MuiThemeProvider>
 	    	</form>
-	    	<div className="weather-tags">
-		    	<span id="weather-location">{this.state.weather.location}	</span> <br/>
-		    	<span id="weather-status">	{this.state.weather.status}		</span> <br/>
-		    	<span id="weather-f">		{this.state.weather.fahrenheit}	</span> <br/>
-	    	</div>
+	    	<ToggleDisplay show={this.state.show}>
+		    	<div className="weather-card">
+			    	<div id="weather-location">
+			    		<span id="weather-city"> 	{this.state.weather.location} </span>
+			    	</div>
+			    	<div id="weather-icon">		<img src={this.state.img} id="icon" alt="icon"/>	</div>
+			    	<div id="weather-status">	{this.state.status}		</div>
+			    	<div id="weather-f">		{this.state.weather.fahrenheit}	</div>
+		    	</div>
+		    </ToggleDisplay>
 	    	<div>
 	    		<button onClick={this.showMap.bind(this)}>
 	    			Show Location on Map
 	    		</button>
-	    		{!this.state.isHidden && <Display />}
+	    		{!this.state.isMapHidden && <Display />}
 	    	</div>
     	</div>
     );

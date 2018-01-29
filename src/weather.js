@@ -2,8 +2,8 @@
 function Weather(data) {
 	this.coord = data.coord;
 	this.location = data.name;
-	this.fahrenheit = ktoF(data.main.temp);
-	this.celsius = ktoC(data.main.temp);
+	this.fahrenheit = ktoF(data.main.temp) + "°F";
+	this.celsius = ktoC(data.main.temp) + "°C";
 	this.status = parseStatus(data.weather);
 	this.humidity = data.main.humidity;
 }
@@ -20,6 +20,7 @@ function ktoC(kelv) {
 function parseStatus(array) {
 	let condition = [];
 	array.forEach((elem) => {
+		condition.push(elem.id)
 		condition.push(elem.main);
 	});
 	return condition;
