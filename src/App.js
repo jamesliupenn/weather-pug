@@ -12,7 +12,6 @@ class App extends Component {
           <MuiThemeProvider>
               <AppBar title="WeatherPug" iconClassNameRight="muidocs-icon-navigation-expand-more"/>
           </MuiThemeProvider>
-
           <Search />
       </div>
     );

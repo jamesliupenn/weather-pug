@@ -96,7 +96,7 @@ class Search extends Component {
 	    				pattern="[0-9]{5}" value={this.state.value}
 	    				onChange={this.handleChange} />
 	    			<br />
-	    			<RaisedButton type="submit" label="Search" 
+	    			<RaisedButton type="submit" label="ASK THE PUG" 
 	    				primary={true} onSubmit={this.handleSubmit}/>
 	    		</MuiThemeProvider>
 	    	</form>
