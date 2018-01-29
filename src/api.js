@@ -8,10 +8,9 @@ require('dotenv').config();
 function getWeather(zip) {
 	return new Promise(
 		function (resolve, reject) {
-			console.log(process.env);
 			var response = 
 			axios
-			.get(url + "APPID=" + "f5823bb83b3698f8b5e825d79e11ec75" + "&zip=" + zip + ",us")
+			.get(url + "APPID=" + process.env.REACT_APP_WEATHER_ID + "&zip=" + zip + ",us")
 			.then(response => {
 				let query = new Weather(response.data);
 				return query;
