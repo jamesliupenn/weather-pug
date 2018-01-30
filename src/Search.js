@@ -35,16 +35,14 @@ class Search extends Component {
   		.then(response => {
   			this.setState({ zipcode });
   			this.setState({ weather: response });
-  			this.setState({
-  				show: true
-  			});
+  			this.setState({ show: true });
   			// Figure out which icon img to use for the weather
   			let icon = this.imgPicker(response.status);
   		}).catch(err => {
+  			// Upon error, hide display, alert on windows, and reload app
   			this.setState({ show: false });
   			window.alert("Invalid zipcode, please enter again");
 			window.location.reload();
-  			// Need to handle error and redirect back to page
   		});
   }
 
@@ -103,13 +101,16 @@ class Search extends Component {
 	    	<ToggleDisplay show={this.state.show}>
 		    	<div className="weather-card">
 			    	<div id="weather-location">
-			    		<span id="weather-city"> 	{this.state.weather.location} </span>
+			    		<span id="weather-city">{this.state.weather.location} </span>
 			    	</div>
 			    	<div id="weather-icon">		<img src={this.state.img} id="icon" alt="icon"/>	</div>
 			    	<div id="weather-status">	{this.state.status}		</div>
 			    	<div id="weather-f">		{this.state.weather.fahrenheit}	</div>
 		    	</div>
 		    </ToggleDisplay>
+		    <div className="pug">
+			    <img src="./pug.png" id="pug"/>
+		    </div>
 	    	<div>
 	    		<button onClick={this.showMap.bind(this)}>
 	    			Show Location on Map

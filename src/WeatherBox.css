@@ -8,8 +8,24 @@
 	background-color: #d9f3f9;
 	border-radius: 1em;
 	display: grid;
-/*	grid-gap: 10px;
-*/		grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	position: relative;
+	/*border: 3px double black;*/
+}
+
+.weather-card:before {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	height: 20px;
+	width: 20px;
+	background-color: #d9f3f9;
+	box-sizing:border-box;
+	transform: rotate(45deg) translate(-70%);
+	border-bottom: inherit;
+	border-right: inherit;
+	box-shadow: inherit;
 }
 
 	#weather-location {
@@ -49,3 +65,8 @@
 		font-size: 2em;
 	}
 
+.pug {
+}
+
+#pug {
+}
