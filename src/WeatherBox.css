@@ -5,7 +5,7 @@
 .weather-card {
 	margin: 1em 4em 1em 4em;
 	padding: 1em 1em 1em 1em;
-	background-color: #d9f3f9;
+	background-color: #b2ebf2;
 	border-radius: 1em;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -20,7 +20,7 @@
 	left: 50%;
 	height: 20px;
 	width: 20px;
-	background-color: #d9f3f9;
+	background-color: #b2ebf2;
 	box-sizing:border-box;
 	transform: rotate(45deg) translate(-70%);
 	border-bottom: inherit;
