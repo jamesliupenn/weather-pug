@@ -3,7 +3,6 @@
 }
 
 .weather-card {
-	/*margin: 1em 4em 1em 4em;*/
 	padding: 1em 1em 1em 1em;
 	max-width: 55%;
 	margin-left: auto;
@@ -15,7 +14,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	position: relative;
-	/*border: 3px double black;*/
 }
 
 .weather-card:before {
@@ -71,7 +69,4 @@
 	}
 
 .pug {
-}
-
-#pug {
 }

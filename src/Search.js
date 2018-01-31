@@ -89,8 +89,8 @@ class Search extends Component {
     	<div className="search-form">
 	    	<form onSubmit={this.submitZipCode}>
 	    		<MuiThemeProvider>
-	    			<TextField id="zip" hintText="Your 5-digit zipcode" 
-	    				floatingLabelText="Location" maxLength="5" 
+	    			<TextField id="zip" 
+	    				floatingLabelText="Enter 5-digit zipcode" maxLength="5" 
 	    				pattern="[0-9]{5}" value={this.state.value}
 	    				onChange={this.handleChange} />
 	    			<br />
