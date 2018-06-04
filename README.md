@@ -6,8 +6,8 @@ Build an app that is functionally similar to http://codepen.io/FreeCodeCamp/full
 ## User Stories
 1. See the weather in user's current location.
 2. See a different icon or background image depending on the weather.
-3. Push a button to toggle between Fahrenheit and Celsius.
-4. See the location on a map.
+3. *Push a button to toggle between Fahrenheit and Celsius.
+4. *See the location on a map.
 5. Search the weather for another location based on zipcode.
 
 ## Hosting
